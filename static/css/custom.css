@@ -1,0 +1,195 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #ffffff;
+}
+
+.navbar-bg {
+  background-color: #f8f7ff;
+}
+
+.radius-10 {
+  border-radius: 10px;
+}
+
+.search-container {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  /* max-width: 300px; 
+  margin: 0 auto;  */
+  width: 100%;
+}
+
+.search-bar {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+}
+
+.search-button {
+  background-color: #fff;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  color: #acacac;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.search-container .search-bar::placeholder {
+  color: #acacac;
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+.dropdownSearch {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-y: auto;
+  /* position: absolute; */
+  width: 100%;
+  background: white;
+  z-index: 1;
+}
+
+.btn-first {
+  background-color: #7d67ff;
+  color: #fff;
+  padding: 15px 20px;
+}
+
+.btn-first:hover {
+  background-color: #7d67ff;
+  color: #fff;
+}
+
+.btn-outline-purple {
+  border: 1px solid #7d67ff;
+  color: #7d67ff;
+  padding: 15px 20px;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.text-semi-bold {
+  font-weight: 500;
+}
+
+.text-medium {
+  font-weight: 400;
+}
+
+.text-light {
+  font-weight: 300;
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-26 {
+  font-size: 26px;
+}
+
+.font-28 {
+  font-size: 28px;
+}
+
+.text-purple {
+  color: #7d67ff;
+}
+
+.text-donker {
+  color: #352e5b;
+}
+
+.text-green {
+  color: #3edd87;
+}
+
+.text-label {
+  color: #6a707e;
+}
+
+.card-chart {
+  border-radius: 20px;
+  border-color: #7d67ff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.parent-search {
+  width: 100%;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+
+.autocomplete .search-bar::placeholder {
+  color: #acacac;
+  font-size: 13px;
+  font-weight: lighter;
+}

@@ -1,0 +1,294 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/static/css/bootstrap.css" />
+  <link rel="stylesheet" href="/static/css/custom.css" />
+  <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="container navbar-bg radius-10 mt-3">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- <div class="search-container">
+            <input type="text" class="search-bar" id="searchInput" placeholder="Type something ..." />
+            <button class="search-button">
+              <img src="assets/ic_search.svg" alt="search" width="24">
+            </button>
+          </div> -->
+          <form class="parent-search mb-0" autocomplete="off" action="" method="POST">
+            {% csrf_token %}
+            <div class="autocomplete">
+              <input class="search-bar" id="myInput" type="text" name="searchBarInput" placeholder="Type something...">
+              <button class="search-button" type="submit">
+                <img src="/static/assets/ic_search.svg" alt="search" width="24">
+              </button>
+            </div>
+          </form>
+
+          <div class="d-flex align-items-center">
+            <form class="form-inline d-sm-block d-md-none">
+              <a class="btn btn-first my-2 my-sm-0" data-bs-toggle="modal" data-bs-target="#modalGuide">
+                <img src="/static/assets/ic_guide.png" class="me-2" alt="guide" width="24" />Guide
+              </a>
+            </form>
+            <form class="form-inline d-sm-block d-md-none ms-auto">
+              <a href="{% url 'login' %}" class="btn btn-danger my-2 my-sm-0" style="padding: 15px 20px">
+                <img src="/static/assets/ic_logout.png" class="me-2" alt="logout" width="24" />Logout
+              </a>
+            </form>
+          </div>
+          <!-- Desktop Button -->
+          <form class="form-inline ms-2 mt-3 d-none d-md-block vl">
+            <a class="btn btn-first btn-navbar-right ms-3 d-flex align-items-center radius-10" data-bs-toggle="modal"
+              data-bs-target="#modalGuide">
+              <img src="/static/assets/ic_guide.png" class="me-2" alt="guide" width="24" />Guide
+            </a>
+          </form>
+          <form class="form-inline ms-2 mt-3 d-none d-md-block vl">
+            <a href="{% url 'login' %}" class="btn btn-danger btn-navbar-right ms-3 d-flex align-items-center radius-10"
+              style="padding: 15px 20px">
+              <img src="/static/assets/ic_logout.png" class="me-2" alt="guide" width="24" />Logout
+            </a>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- End Navbar -->
+
+  <!-- Modal Guide -->
+  <div class="modal fade" id="modalGuide" tabindex="-1" aria-labelledby="modalGuideLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title text-donker font-28" id="modalGuideLabel">GUIDE</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h4 class="font-24 text-donker mb-4 text-medium">[Upload Data] How do I view history and sentiment based on
+            the data I
+            uploaded?</h4>
+
+          <div class="container">
+            <h6 class="text-regular font-18 text-donker mb-4">You can see stock sentiment by generating the data you
+              have
+              entered</h6>
+            <div class="container">
+              <div class="guide">
+                <h6 class="text-medium font-18 text-donker">
+                  1. Select the report menu
+                </h6>
+                <div class="" style="margin-left: 15px;">
+                  <p class="text-regular font-18 text-donker">
+                    To see stock sentiment, you can select the report menu in the sidebar
+                  </p>
+                  <img src="/static/assets/guide-1.png" class="img-fluid" alt="guide-1" width="646">
+                </div>
+              </div>
+              <div class="guide">
+                <h6 class="text-medium font-18 text-donker">
+                  2. Upload Attachment
+                </h6>
+                <div class="" style="margin-left: 15px;">
+                  <p class="text-regular font-18 text-donker">
+                    Upload the file and enter the batch size and timestamp then click generate
+                  </p>
+                  <img src="/static/assets/guide-2.png" class="img-fluid" alt="guide-1" width="646">
+                </div>
+              </div>
+              <div class="guide">
+                <h6 class="text-medium font-18 text-donker">
+                  3. See The Results
+                </h6>
+                <div class="" style="margin-left: 15px;">
+                  <p class="text-regular font-18 text-donker">
+                    The generated results will appear below along with graphs and sentiment
+                  </p>
+                  <img src="/static/assets/guide-3.png" class="img-fluid" alt="guide-1" width="646">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+    <div class="d-flex align-items-center mb-3">
+      <h4 class="font-28 text-donker">DATA SAHAM HISTORIS</h4>
+      <h4 href="#" class=" text-decoration-none font-28 ms-auto">DATA HASIL PREDIKSI</h4>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card card-chart mb-3">
+
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3" style="background-color: transparent;">
+              <div class="d-flex align-items-center">
+                <img src="/static/assets/logo_asii.png" alt="asii" width="32">
+                <h5 class="ms-2 mb-0 font-16 text-bold text-black">{{kodeSaham}}</h5>
+                <p class="mb-0 text-secondary font-12 ms-2">({{perusahaan}})</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <p class="text-green font-16 text-medium mb-0">
+                +1,21%
+              </p>
+            </div>
+            <div id="chartASII"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-12 col-lg-6"> 
+        <div class="text-center mb-3">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% comment %} {{predicted}} {% endcomment %}
+              {% if predicted %}
+                {% for date, price in predicted %}
+                <tr>
+                  <td scope="row">{{date}}</td>
+                  <td>{{ price }}</td>
+                </tr>
+                {% endfor %}
+              {% endif%}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="notes mb-3">
+          <p class="mb-2 font-14 text-medium text-donker">Notes</p>
+          <div class="d-flex">
+            <div class="text-danger me-1">*</div>
+            <p class="mb-0 font-14 text-medium text-donker">{{suggestion}}</p>
+          </div>
+          <div class="d-flex">
+            <div class="text-danger me-1">*</div>
+            <p class="mb-0 font-14 text-medium text-donker">
+              {% if first_date != "" %}
+                Baik Membeli pada tanggal {{first_date}} dan menjual pada tanggal {{second_date}}
+              {% endif %}
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script> -->
+  <script type="text/javascript" src="/static/js/bootstrap.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="/static/js/chart.js"></script>
+  <script src="/static/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+  <script src="/static/plugins/apexcharts-bundle/js/apex-custom.js"></script>
+  <script src="/static/js/searchBar.js"></script>
+
+
+  <script>
+    var kodeSaham_array = {{ kodeSaham_json|safe }};
+    autocomplete(document.getElementById("myInput"), kodeSaham_array);
+  </script>
+
+  <script>
+    var options = {
+      series: [
+        {
+          name: "Price",
+          data: {{ price_list|safe }},
+        },
+      ],
+      chart: {
+        foreColor: "#9ba7b2",
+        height: 360,
+        type: "line",
+        zoom: {
+          enabled: false,
+        },
+        toolbar: {
+          show: false,
+        },
+        dropShadow: {
+          enabled: true,
+          top: 3,
+          left: 14,
+          blur: 4,
+          opacity: 0.1,
+        },
+      },
+      stroke: {
+        width: 5,
+        curve: "smooth",
+      },
+      xaxis: {
+        type: "week",
+        categories: {{ date_list|safe }},
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "light",
+          gradientToColors: ["#7d67ff"],
+          shadeIntensity: 1,
+          type: "horizontal",
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [0, 100, 100, 100],
+        },
+      },
+      markers: {
+        size: 4,
+        colors: ["#7d67ff"],
+        strokeColors: "#fff",
+        strokeWidth: 2,
+        hover: {
+          size: 7,
+        },
+      },
+      colors: ["#7d67ff"],
+    };
+    var chart = new ApexCharts(document.querySelector("#chartASII"), options);
+    chart.render();
+  </script>
+
+  
+</body>
+
+</html>
